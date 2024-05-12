@@ -14,6 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.github.angads25.toggle.interfaces.OnToggledListener;
+import com.github.angads25.toggle.model.ToggleableView;
+import com.github.angads25.toggle.widget.LabeledSwitch;
+
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -25,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     MQTTHelper mqttHelper;
     TextView txtTemperature, txtHumidity;
-    Button StartButton;
+    LabeledSwitch StartButton;
     Button MixerButton;
     Button CycleButton;
     Button TimerButton;
@@ -75,6 +79,20 @@ public class MainActivity extends AppCompatActivity {
         inputMixer1Button = findViewById(R.id.inputMixer1Button);
         inputMixer2Button = findViewById(R.id.inputMixer2Button);
         inputMixer3Button = findViewById(R.id.inputMixer3Button);
+
+        StartButton.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(ToggleableView toggleableView, boolean isOn) {
+                if(isOn == true){
+                    sendDataMQTT( "khanhhuy03/feeds/active","1");
+
+                }
+                else{
+                    sendDataMQTT( "khanhhuy03/feeds/active","0");
+
+                }
+            }
+        });
 //
 
         MixerButton.setOnClickListener(new View.OnClickListener() {
@@ -212,14 +230,7 @@ public class MainActivity extends AppCompatActivity {
                 else if(topic.contains("cambien2")){
                     txtHumidity.setText(message.toString() + "%");
                 }
-                else if(topic.contains("nutnhan1")){
-                    if(message.toString().equals("1")){
-                        btnLED1.setOn(true);
-                    }
-                    else{
-                        btnLED1.setOn(false);
-                    }
-                }
+
 //                else if(topic.contains("nutnhan2")){
 //                    if(message.toString().equals("1")){
 //                        btnLED2.setOn(true);

@@ -17,11 +17,12 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 public class MQTTHelper {
     public MqttAndroidClient mqttAndroidClient;
     private Context context;
-    public final String[] arrayTopics = {"khanhhuy03/feeds/next-cycle", "khanhhuy03/feeds/active","khanhhuy03/feeds/humidity", "khanhhuy03/feeds/pump-in","khanhhuy03/feeds/pump-out"};
+    public final String[] arrayTopics = {"khanhhuy03/feeds/next-cycle", "khanhhuy03/feeds/active","khanhhuy03/feeds/humidity", "khanhhuy03/feeds/pump-in","khanhhuy03/feeds/pump-out",
+            "khanhhuy03/feeds/mixer1","khanhhuy03/feeds/mixer2","khanhhuy03/feeds/mixer3"};
 
     final String clientId = "Huy03";
     final String username = "khanhhuy03";
-    final String password = "aio_LgpT42X0mSqOJ4sRG7F9QNJ3f38q";
+    final String password = "aio_hHlr56BHccF1fH03DeEVR9BA8xbr";
 
     final String serverUri = "tcp://io.adafruit.com:1883";
     public MQTTHelper(Context context){

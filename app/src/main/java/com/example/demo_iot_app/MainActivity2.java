@@ -136,8 +136,52 @@ public class MainActivity2 extends AppCompatActivity {
 
 
         });
+
+        Mixer2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the entered number from EditText
+                String numberStr = inputMixer2Button.getText().toString();
+
+                if (!numberStr.isEmpty()) {
+                    // Convert the input to a number
+
+                    String topic = "khanhhuy03/feeds/mixer2"; // Replace with your Adafruit username and feed name
+                    sendDataMQTT(topic, numberStr);
+
+                    // Do something with the number, for example, display it
+
+                } else {
+                    // If EditText is empty, show a toast
+                    Toast.makeText(MainActivity2.this, "Please enter a number", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+
+        });
+
+        Mixer3Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the entered number from EditText
+                String numberStr = inputMixer3Button.getText().toString();
+
+                if (!numberStr.isEmpty()) {
+                    // Convert the input to a number
+
+                    String topic = "khanhhuy03/feeds/mixer3"; // Replace with your Adafruit username and feed name
+                    sendDataMQTT(topic, numberStr);
+
+                    // Do something with the number, for example, display it
+
+                } else {
+                    // If EditText is empty, show a toast
+                    Toast.makeText(MainActivity2.this, "Please enter a number", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         startMQTT();
-
-
     }
+
+
 }

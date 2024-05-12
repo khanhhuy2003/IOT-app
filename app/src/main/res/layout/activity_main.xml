@@ -71,16 +71,25 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             tools:ignore="NestedWeights">
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="20dp"
-                android:text="Start"
+<!--            <Button-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_margin="20dp"-->
+<!--                android:text="Start"-->
+<!--                android:id="@+id/StartButton"-->
+<!--                android:textSize="20sp"-->
+<!--                tools:ignore="HardcodedText">-->
+<!--            </Button>-->
+            <com.github.angads25.toggle.widget.LabeledSwitch
                 android:id="@+id/StartButton"
-                android:textSize="20sp"
-                tools:ignore="HardcodedText">
-            </Button>
-
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:textSize="14sp"
+                app:colorBorder="@color/colorAccent"
+                app:textOn = "ON"
+                app:textOff ="Off"
+                app:on="false" />
 
 
         </LinearLayout>
