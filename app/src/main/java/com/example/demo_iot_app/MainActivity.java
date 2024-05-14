@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
     LabeledSwitch StartButton;
     Button MixerButton;
     Button CycleButton;
-    Button TimerButton;
+    Button AreaButton;
     Button PumpinButton;
     Button PumpoutButton;
     EditText inputCycle;
-    EditText inputTimer;
+    EditText inputArea;
     EditText inputPumpin;
     EditText inputPumpout;
 
@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
         CycleButton = findViewById(R.id.CycleButton);
         PumpinButton = findViewById(R.id.PumpinButton);
         PumpoutButton = findViewById(R.id.PumpoutButton);
-        TimerButton = findViewById(R.id.TimerButton);
+        AreaButton = findViewById(R.id.AreaButton);
 
         inputCycle = findViewById(R.id.inputCycle);
-        inputTimer = findViewById(R.id.inputTimer);
+        inputArea = findViewById(R.id.inputArea);
         inputPumpin = findViewById(R.id.inputPumpin);
         inputPumpout = findViewById(R.id.inputPumpout);
 
@@ -84,11 +84,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwitched(ToggleableView toggleableView, boolean isOn) {
                 if(isOn == true){
-                    sendDataMQTT( "khanhhuy03/feeds/active","1");
+                    sendDataMQTT( "huytran1305/feeds/assignment.active","1");
 
                 }
                 else{
-                    sendDataMQTT( "khanhhuy03/feeds/active","0");
+                    sendDataMQTT( "huytran1305/feeds/assignment.active","0");
 
                 }
             }
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!numberStr.isEmpty()) {
                     // Convert the input to a number
 
-                    String topic = "khanhhuy03/feeds/next-cycle"; // Replace with your Adafruit username and feed name
+                    String topic = "huytran1305/feeds/assignment.next-cycle"; // Replace with your Adafruit username and feed name
                     sendDataMQTT(topic, numberStr);
 
                     // Do something with the number, for example, display it
@@ -126,16 +126,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TimerButton.setOnClickListener(new View.OnClickListener() {
+        AreaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Get the entered number from EditText
-                String numberStr = inputTimer.getText().toString();
+                String numberStr = inputArea.getText().toString();
 
                 if (!numberStr.isEmpty()) {
                     // Convert the input to a number
 
-                    String topic = "khanhhuy03/feeds/next-cycle"; // Replace with your Adafruit username and feed name
+                    String topic = "huytran1305/feeds/assignment.selector"; // Replace with your Adafruit username and feed name
                     sendDataMQTT(topic, numberStr);
 
                     // Do something with the number, for example, display it
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!numberStr.isEmpty()) {
                     // Convert the input to a number
 
-                    String topic = "khanhhuy03/feeds/pump-in"; // Replace with your Adafruit username and feed name
+                    String topic = "huytran1305/feeds/assignment.pump-in"; // Replace with your Adafruit username and feed name
                     sendDataMQTT(topic, numberStr);
 
                     // Do something with the number, for example, display it
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!numberStr.isEmpty()) {
                     // Convert the input to a number
 
-                    String topic = "khanhhuy03/feeds/pump-out"; // Replace with your Adafruit username and feed name
+                    String topic = "huytran1305/feeds/assignment.pump-out"; // Replace with your Adafruit username and feed name
                     sendDataMQTT(topic, numberStr);
 
                     // Do something with the number, for example, display it
@@ -224,10 +224,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 Log.d("TEST", topic + "***" + message.toString());
-                if(topic.contains("cambien1")){
+                if(topic.contains("huytran1305/feeds/assignment.temperature")){
                     txtTemperature.setText(message.toString() + "*C");
                 }
-                else if(topic.contains("cambien2")){
+                else if(topic.contains("huytran1305/feeds/assignment.humidity")){
                     txtHumidity.setText(message.toString() + "%");
                 }
 

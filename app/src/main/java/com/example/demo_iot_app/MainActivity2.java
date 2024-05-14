@@ -123,7 +123,7 @@ public class MainActivity2 extends AppCompatActivity {
                 if (!numberStr.isEmpty()) {
                     // Convert the input to a number
 
-                    String topic = "khanhhuy03/feeds/mixer1"; // Replace with your Adafruit username and feed name
+                    String topic = "huytran1305/feeds/assignment.mixer1"; // Replace with your Adafruit username and feed name
                     sendDataMQTT(topic, numberStr);
 
                     // Do something with the number, for example, display it
@@ -146,7 +146,7 @@ public class MainActivity2 extends AppCompatActivity {
                 if (!numberStr.isEmpty()) {
                     // Convert the input to a number
 
-                    String topic = "khanhhuy03/feeds/mixer2"; // Replace with your Adafruit username and feed name
+                    String topic = "huytran1305/feeds/assignment.mixer2"; // Replace with your Adafruit username and feed name
                     sendDataMQTT(topic, numberStr);
 
                     // Do something with the number, for example, display it
@@ -169,7 +169,7 @@ public class MainActivity2 extends AppCompatActivity {
                 if (!numberStr.isEmpty()) {
                     // Convert the input to a number
 
-                    String topic = "khanhhuy03/feeds/mixer3"; // Replace with your Adafruit username and feed name
+                    String topic = "huytran1305/feeds/assignment.mixer3"; // Replace with your Adafruit username and feed name
                     sendDataMQTT(topic, numberStr);
 
                     // Do something with the number, for example, display it

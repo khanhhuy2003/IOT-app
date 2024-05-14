@@ -9,15 +9,15 @@
     tools:context=".ClothingActivity">
 
     <TextView
+        android:id="@+id/clothTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/clothTitle"
-        android:text="Clothing"
-        android:textSize="36sp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/poppins_semibold"
+        android:text="Temperature"
         android:textColor="@color/lavender"
-        android:layout_centerHorizontal="true"/>
+        android:textSize="36sp" />
 
     <ImageView
         android:layout_width="500dp"
